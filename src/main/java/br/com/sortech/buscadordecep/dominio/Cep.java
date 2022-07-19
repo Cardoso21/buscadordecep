@@ -20,7 +20,6 @@ public class Cep implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     private String cep;
     private String lougradouro;
     private String bairro;

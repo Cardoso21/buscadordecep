@@ -24,16 +24,13 @@ public class CepService implements Serializable {
         Cep cep = cepRepositorio.findById(id).orElseThrow(ObjectnotFoundException::new);
         return cepMapper.toDTO(cep);
     }
-
     public List<CepDTO> buscarTodos(){
         return cepMapper.toDTO(cepRepositorio.findAll());
     }
-
     public boolean validarCep(CepDTO cepDTO){
         cepRepositorio.existsByCep(cepDTO.getCep());
         return true;
     }
-
     public CepDTO salvar (CepDTO cepDTO){
         if(validarCep(cepDTO)){
             Cep cep = cepMapper.toEntity(cepDTO);
@@ -42,13 +39,11 @@ public class CepService implements Serializable {
         }
         throw new ObjectnotFoundException("" +cepDTO.getCep());
     }
-
     public CepDTO editarCep(CepDTO cepDTO){
         Cep cep = cepMapper.toEntity(cepDTO);
         Cep cepAtualizar = cepRepositorio.save(cep);
         return cepMapper.toDTO(cepAtualizar);
     }
-
     public void deletar(Long id){
         cepRepositorio.deleteById(id);
     }

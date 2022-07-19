@@ -21,25 +21,21 @@ public class CepRecurso {
         CepDTO cepDTO = cepService.encontrarPorId(id);
         return ResponseEntity.ok(cepDTO);
     }
-
     @GetMapping
     public ResponseEntity <List<CepDTO>> buscarTodos(){
         List<CepDTO> cepList = cepService.buscarTodos();
         return ResponseEntity.ok(cepList);
     }
-
     @PostMapping
     public ResponseEntity<CepDTO> salvar(@RequestBody CepDTO cepDTO){
         return ResponseEntity.ok(cepService.salvar(cepDTO));
     }
-
     @PutMapping(value = "/{id}")
     public ResponseEntity<CepDTO> editar(@RequestBody CepDTO cepDTO,@PathVariable long id){
         cepDTO.setId(id);
         cepDTO=cepService.editarCep(cepDTO);
         return ResponseEntity.ok(cepDTO);
     }
-
     @DeleteMapping(value = "/{id}")
     public ResponseEntity <Void>deletar(@PathVariable Long id){
         cepService.deletar(id);
