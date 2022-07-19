@@ -15,7 +15,8 @@ public class CepDTO implements Serializable {
 
     private Long id;
     private String cep;
-    private String lougradouro;
+    private String logradouro;
+    private String complemento;
     private String bairro;
     private String localidade;
     private String uf;

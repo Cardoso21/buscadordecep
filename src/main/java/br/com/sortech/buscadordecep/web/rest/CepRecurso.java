@@ -6,6 +6,13 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.List;
 
 @CrossOrigin()
@@ -27,7 +34,9 @@ public class CepRecurso {
         return ResponseEntity.ok(cepList);
     }
     @PostMapping
-    public ResponseEntity<CepDTO> salvar(@RequestBody CepDTO cepDTO){
+    public ResponseEntity<CepDTO> salvar(@RequestBody CepDTO cepDTO) throws Exception {
+
+
         return ResponseEntity.ok(cepService.salvar(cepDTO));
     }
     @PutMapping(value = "/{id}")
